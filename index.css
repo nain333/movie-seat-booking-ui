@@ -1,0 +1,55 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.seat {
+  height: 25px;
+  width: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 2px 2px 4px 4px;
+  background-color: #fff;
+}
+.legendContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:10rem;
+  padding: 3rem;
+ 
+}
+.text {
+  text-transform: uppercase;
+}
+.legendItem{
+    display: flex;
+    gap: 0.5rem;
+}
+.available{
+    background-color: whitesmoke;
+}
+.selected{
+    background-color: greenyellow;
+}
+.occupied{
+    background-color: grey;
+}
+#seat-legend{
+   background-color: #eef3f8;
+}
+/* screen */
+.screenWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.screen{
+    width: 75%;
+    height: 1.5rem;
+    background-color: black;
+    border-radius: 0px 0px 5px 5px;
+    color:white;
+    text-align:center;
+    
+}
