@@ -64,3 +64,6 @@
   /* border: 2px solid red; */
 }
 
+.seatGrid .seat:hover{
+    background-color: lightgray;
+}
