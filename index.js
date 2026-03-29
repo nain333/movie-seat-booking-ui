@@ -49,4 +49,17 @@ for (let i = 0; i < row; i++) {
     seatIndex += 1;
   }
 }
-console.log(seatIndex);
+// toggle seat selects on click
+const seats = document.querySelectorAll('.seat')
+console.log(seats);
+seats.forEach((seat)=>{
+    // add eventListen
+    seat.addEventListener('click',()=>{
+        if(seat.classList.contains('occupied')){
+            return;
+        }
+        seat.classList.toggle('selected')
+        
+
+})
+})
