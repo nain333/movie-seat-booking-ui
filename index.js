@@ -50,16 +50,14 @@ for (let i = 0; i < row; i++) {
   }
 }
 // toggle seat selects on click
-const seats = document.querySelectorAll('.seat')
-console.log(seats);
-seats.forEach((seat)=>{
-    // add eventListen
-    seat.addEventListener('click',()=>{
-        if(seat.classList.contains('occupied')){
-            return;
-        }
-        seat.classList.toggle('selected')
-        
+seatGrid.addEventListener('click',(e)=>{
+    const seat =e.target;
+    if(!seat.classList.contains('seat')){
+        return;
+    }
+    if(seat.classList.contains('occupied')){
+        return;
+    }
+    seat.classList.toggle('selected');
 
-})
 })
