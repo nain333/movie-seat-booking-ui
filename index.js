@@ -61,6 +61,41 @@ seatGrid.addEventListener('click',(e)=>{
     seat.classList.toggle('selected');
 
 })
+const movies = [
+  { movieName: 'Flash', moviePrice: 150 },
+  { movieName: 'Superman', moviePrice: 250 },
+  { movieName: 'Batman', moviePrice: 200 },
+  { movieName: 'Spiderman', moviePrice: 180 },
+  { movieName: 'Iron Man', moviePrice: 220 },
+  { movieName: 'Thor', moviePrice: 210 },
+  { movieName: 'Hulk', moviePrice: 170 },
+  { movieName: 'Captain America', moviePrice: 230 },
+  { movieName: 'Doctor Strange', moviePrice: 240 },
+  { movieName: 'Black Panther', moviePrice: 260 }
+];
+const selectMovieCon=document.querySelector('.movieSelect')
+const selectMovie=document.createElement('select');
+selectMovieCon.appendChild(selectMovie);
+// create options
+movies.forEach(movie => {
+  const option = document.createElement('option');
+
+  option.value = movie.movieName;
+  option.textContent = `${movie.movieName} - ₹${movie.moviePrice}`;
+  option.dataset.price = movie.moviePrice;
+
+  selectMovie.appendChild(option);
+});
+selectMovie.addEventListener('change', (e) => {
+  const select = e.target;
+  const option = select.options[select.selectedIndex];
+
+  document.querySelector('#movieName').textContent = option.value;
+  document.querySelector('#moviePrice').textContent = `₹ ${option.dataset.price}`;
+});
+
+
+
 
 
 
