@@ -65,20 +65,8 @@ seatGrid.addEventListener("click", (e) => {
   const summarySeatsEl=document.querySelector('#count')
   summarySeatsEl.textContent=selectedSeatCounter;
   // total summary price
-  const select=document.querySelector('select');
-  console.log(select)
-  const option = select.options[select.selectedIndex];
-  const moviePrice=Number(option.dataset.price);
-  const totalPrice=moviePrice*selectedSeatCounter;
-  console.log(moviePrice)
-  console.log(option)
-  console.log(option)
+  updateTotal();
   
-
-  const summaryTotalPriceEl=document.querySelector('#total');
-  summaryTotalPriceEl.textContent=`₹ ${totalPrice}` 
-  
-
   
 
   
@@ -119,9 +107,21 @@ selectMovie.addEventListener("change", (e) => {
   document.querySelector("#movieName").textContent = option.value;
   document.querySelector("#moviePrice").textContent =
     `₹ ${option.dataset.price}`;
-    const selectedSeats=seatGrid.querySelectorAll('.seat.selected').length;
-    const  optionPrice=Number(option.dataset.price);
-    const totalPrice=document.querySelector('#total')
-    totalPrice.textContent=`₹ ${optionPrice*selectedSeats}`
+  updateTotal();
+    
 });
+// update Total
+
+ const updateTotal = function () {
+  const select = document.querySelector('select');
+  const option = select.options[select.selectedIndex];
+  const moviePrice = Number(option.dataset.price);
+
+  const selectedSeatCounter = document.querySelectorAll('.seat.selected').length;
+
+  const summaryTotalPriceEl = document.querySelector('#total');
+  summaryTotalPriceEl.textContent = `₹ ${moviePrice * selectedSeatCounter}`;
+};
+
+
 
