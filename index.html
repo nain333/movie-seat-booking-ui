@@ -11,80 +11,114 @@
 </head>
 
 <body>
-    <section id="seat-legend">
-        <div class="legendContainer">
-            <div class="legendItem">
-                <div class="seat available">
+    <div class="container">
+        <div class="leftContainer">
+
+            <section id="seat-legend">
+                <div class="legendContainer">
+                    <div class="legendItem">
+                        <div class="seat available">
+
+
+                        </div>
+
+                        <small class="text">Available</small>
+                    </div>
+                    <div class="legendItem">
+                        <div class="seat selected ">
+
+
+                        </div>
+                        <small class="text">Selected</small>
+                    </div>
+                    <div class="legendItem">
+                        <div class="seat occupied">
+
+
+                        </div>
+                        <small class="text">Occupied</small>
+
+
+                    </div>
+                </div>
+
+
+            </section>
+            <section id="theater">
+                <div class="screenWrapper">
+                    <div class="screen">
+                        <small>S C R E E N</small>
+
+                    </div>
+                </div>
+                <div class="seatGridWrapper">
+
+
+                    <div class="seatGrid">
+
+                    </div>
+
+
+
 
 
                 </div>
 
-                <small class="text">Available</small>
-            </div>
-            <div class="legendItem">
-                <div class="seat selected ">
 
 
-                </div>
-                <small class="text">Selected</small>
-            </div>
-            <div class="legendItem">
-                <div class="seat occupied">
+            </section>
+        </div>
+        <div class="rightContainer">
+            <aside class="summary">
+                <aside class="summary">
 
+                    <!-- Top Section -->
+                    <div class="top">
+                        <div class="movieSelect">
+                            <p>Select Movie</p>
+                            <select id="movie">
+                                <option value="150">Flash</option>
+                                <option value="120">Batman</option>
+                                <option value="100">Spiderman</option>
+                            </select>
+                        </div>
 
-                </div>
-                <small class="text">Occupied</small>
+                        <div class="movieInfo">
+                            <p>Movie Name</p>
+                            <h3 id="movieName">Flash</h3>
+                        </div>
 
+                        <div class="moviePrice">
+                            <p>Movie Price</p>
+                            <h3 id="moviePrice">₹150</h3>
+                        </div>
+                    </div>
 
-            </div>
+                    <!-- Bottom Section -->
+                    <div class="bottom">
+
+                        <div class="selectedSeats">
+                            <p>Selected Seats</p>
+                            <div id="selectedSeats"></div>
+                        </div>
+
+                        <div class="summaryRow">
+                            <span id="count">0</span> Seats
+                            <span id="total">₹0</span>
+                        </div>
+
+                        <div class="buttons">
+                            <button>Cancel</button>
+                            <button>Continue</button>
+                        </div>
+
+                    </div>
+
+                </aside>
         </div>
 
 
-    </section>
-    <section id="theater">
-        <div class="screenWrapper">
-            <div class=screen>
-                <small>S C R E E N</small>
-
-            </div>
-        </div>
-        <div class="seatGridWrapper">
-           <div class="seatGrid">
-  <!-- Row 1 -->
-  <!-- <div class="seat"></div>
-  <div class="seat"></div>
-
-  <div class="aisle"></div>
-
-  <div class="seat"></div>
-  <div class="seat"></div>
-  <div class="seat"></div>
-  <div class="seat"></div>
-
-  <div class="aisle"></div>
-
-  <div class="seat"></div>
-  <div class="seat"></div> -->
-
-  <!-- Row 2 (repeat same pattern) -->
-  <!-- <div class="seat"></div>
-  <div class="seat"></div>
-
-  <div class="aisle"></div>
-
-  <div class="seat"></div>
-  <div class="seat"></div>
-  <div class="seat"></div>
-  <div class="seat"></div>
-
-  <div class="aisle"></div>
-
-  <div class="seat"></div>
-  <div class="seat"></div> -->
-</div>
-
-
-    </section>
+    </div>
 
 
 

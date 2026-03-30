@@ -61,3 +61,9 @@ seatGrid.addEventListener('click',(e)=>{
     seat.classList.toggle('selected');
 
 })
+
+
+
+
+
+
