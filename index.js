@@ -135,6 +135,10 @@ const selectedSeatSummary = function () {
 
   // 2. get selected seats
   const selectedSeats = seatGrid.querySelectorAll(".seat.selected");
+  if (selectedSeats.length === 0) {
+    seatSummary.innerHTML = "<hr> <small>No seats selected</small><hr>";
+    return;
+  }
 
   // 3. rebuild UI
   selectedSeats.forEach((seat, index) => {
@@ -143,3 +147,23 @@ const selectedSeatSummary = function () {
     seatSummary.appendChild(span);
   });
 };
+// cancel button
+const cancelButton = document.querySelector("#cancel");
+
+cancelButton.addEventListener("click", () => {
+  const selectedSeats = seatGrid.querySelectorAll(".seat.selected");
+
+  // remove class from each seat
+  selectedSeats.forEach((seat) => {
+    seat.classList.remove("selected");
+  });
+
+  // update UI properly
+  updateTotal();
+  selectedSeatSummary();
+});
+// continue button
+const continueButton=document.querySelector('#continue');
+continueButton.addEventListener('click',()=>{
+  alert("Yay, your seats have been booked")
+})
