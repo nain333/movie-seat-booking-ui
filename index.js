@@ -9,6 +9,10 @@ for (let i = 0; i < row; i++) {
   // 2rows
   for (let j = 0; j < 2; j++) {
     const seat = document.createElement("div");
+    // assign seat number
+
+    seat.dataset.index = Number(seatIndex + 1);
+
     seat.classList.add("seat");
 
     if (occupiedSeats.includes(seatIndex + 1)) {
@@ -25,6 +29,7 @@ for (let i = 0; i < row; i++) {
   for (let j = 0; j < 4; j++) {
     const seat = document.createElement("div");
     seat.classList.add("seat");
+    seat.dataset.index = Number(seatIndex + 1);
 
     if (occupiedSeats.includes(seatIndex + 1)) {
       seat.classList.add("occupied");
@@ -38,9 +43,10 @@ for (let i = 0; i < row; i++) {
   seatGrid.appendChild(asile2);
 
   // 2 seats
-  for (j = 0; j < 2; j++) {
+  for (let j = 0; j < 2; j++) {
     const seat = document.createElement("div");
     seat.classList.add("seat");
+    seat.dataset.index = Number(seatIndex + 1);
 
     if (occupiedSeats.includes(seatIndex + 1)) {
       seat.classList.add("occupied");
@@ -61,15 +67,14 @@ seatGrid.addEventListener("click", (e) => {
     return;
   }
   seat.classList.toggle("selected");
-  const selectedSeatCounter = seatGrid.querySelectorAll('.seat.selected').length;
-  const summarySeatsEl=document.querySelector('#count')
-  summarySeatsEl.textContent=selectedSeatCounter;
+  const selectedSeatCounter =
+    seatGrid.querySelectorAll(".seat.selected").length;
+  const summarySeatsEl = document.querySelector("#count");
+  summarySeatsEl.textContent = selectedSeatCounter;
   // total summary price
   updateTotal();
-  
-  
+  selectedSeatSummary();
 
-  
   console.log(selectedSeatCounter);
 });
 
@@ -101,27 +106,40 @@ movies.forEach((movie) => {
 selectMovie.addEventListener("change", (e) => {
   const select = e.target;
   const option = select.options[select.selectedIndex];
-  
-  
 
   document.querySelector("#movieName").textContent = option.value;
   document.querySelector("#moviePrice").textContent =
     `₹ ${option.dataset.price}`;
   updateTotal();
-    
+  selectedSeatSummary();
 });
 // update Total
 
- const updateTotal = function () {
-  const select = document.querySelector('select');
+const updateTotal = function () {
+  const select = document.querySelector("select");
   const option = select.options[select.selectedIndex];
   const moviePrice = Number(option.dataset.price);
 
-  const selectedSeatCounter = document.querySelectorAll('.seat.selected').length;
+  const selectedSeatCounter =
+    document.querySelectorAll(".seat.selected").length;
 
-  const summaryTotalPriceEl = document.querySelector('#total');
+  const summaryTotalPriceEl = document.querySelector("#total");
   summaryTotalPriceEl.textContent = `₹ ${moviePrice * selectedSeatCounter}`;
 };
+// selected Seats
+const selectedSeatSummary = function () {
+  const seatSummary = document.querySelector(".seatSummary");
 
+  // 1. clear previous
+  seatSummary.innerHTML = "";
 
+  // 2. get selected seats
+  const selectedSeats = seatGrid.querySelectorAll(".seat.selected");
 
+  // 3. rebuild UI
+  selectedSeats.forEach((seat, index) => {
+    const span = document.createElement("span");
+    span.textContent = `Seat: ${seat.dataset.index}`;
+    seatSummary.appendChild(span);
+  });
+};

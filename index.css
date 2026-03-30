@@ -113,3 +113,16 @@
     display: flex;
     justify-content: space-between;
 }
+.seatSummary span{
+  display: inline-block;
+  width:3rem;
+  height:3rem;
+  border: green solid;
+  padding: 2px;
+  text-align: center;
+  margin:2px;
+}
+.seatSummary{
+  text-align: center;
+
+}
